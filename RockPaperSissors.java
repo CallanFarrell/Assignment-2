@@ -1,5 +1,4 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /***************************
 * Created by: Callan Farrell.
@@ -13,52 +12,62 @@ public class RockPaperSissors {
   ****/
 
   public static void main(String[] args) {
-    int input;
-    int b = 1;
-    Scanner callan = new Scanner(System.in);
-    Random rnd = new Random();
-    System.out.println("Rock Paper Scissors, by Callan!");
-    System.out.println("Select 1, 2, 3, for Rock, Paper, Scissors");
-    //Menu Present, pretty bad still
-
-    while (b != 0) {
-      int rock = 1; 
-      int paper = 2; 
-      int scissors = 3;
-      input = callan.nextInt();
-      int randomNumber = rnd.nextInt(3 - 1 + 1) + 1;
-
-      if (randomNumber == rock) {
-        if (input == rock) {
-          System.out.println("Rock vs. Rock, ITS A TIE!");
-        }    else if (input == paper) {
-          System.out.println("Rock vs. Paper! You win!");
-        }    else if (input == scissors) {
-          System.out.println("Rock vs. Scissors! You lose!");
-          
-        } else if (randomNumber == paper) {
-          if (input == rock) {
-            System.out.println("Paper vs. Rock! You lose!");
-          }   else if (input == scissors) {
-            System.out.println("Paper vs. Scissors! You win!");
-          }   else if (input == paper) {
-            System.out.println("Paper vs. Paper! Its a tie!");
-            
-          } else if (randomNumber == scissors) {
-            if (input == rock) {
-              System.out.println("Scissors vs. Rock! You win!");
-            }   else if (input == scissors) {
-              System.out.println("Scissors vs. Scissors, ITS A TIE!");
-            }   else if (input == paper) {
-              System.out.println("Scissors vs Paper! You lose!");
-            }
-          }
-        }
+    Scanner consol = new Scanner(System.in);
+    Random generator = new Random();
+    
+    final int ROCK = 1;
+    final int PAPER = 2;
+    final int SCISSORS = 3;
+    
+    int userChoice, computerChoice;
+    
+    do{
+        System.out.println("1: Rock\n2: Paper\n3: Scissors\n-1 to quit:");
+        userChoice = consol.nextInt();
+        computerChoice = generator.nextInt(3) + 1;
         
-
-
-      }
-
-    }
+        if(userChoice == ROCK){
+            if(computerChoice == ROCK){
+              System.out.println("Rock vs rock: Tie game");
+            }
+            else if(computerChoice == PAPER){
+              System.out.println("Rock vs Paper: You lose");
+            }
+           else if(computerChoice == SCISSORS){
+              System.out.println("Rock vs Scissors: You win");
+           }
+        }
+        if(userChoice == PAPER){
+            if(computerChoice == ROCK){
+              System.out.println("Paper vs Paper: Tie game");
+            }
+            else if(computerChoice == PAPER){
+              System.out.println("Paper vs Scissors: You lose");
+            }
+           else if(computerChoice == SCISSORS){
+              System.out.println("Paper vs Rock: You win");
+           }
+        }
+        if(userChoice == SCISSORS){
+            if(computerChoice == ROCK){
+              System.out.println("Scissors vs Scissors: Tie game");
+            }
+            else if(computerChoice == PAPER){
+              System.out.println("Scissors vs Rock: You lose");
+            }
+            else if(computerChoice == SCISSORS){
+               System.out.println("Scissors vs Paper: You win");
+           }
+        }
+    
+      
+      
+    }while(userChoice > 0);
+    
+    System.out.println("Thanks for playing");
+    
+    
+    System.out.println("Rock Paper Scissors");
   }
 }
+    
